@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jesús Sánchez Martínez — Cloud &amp; GenAI Solutions Engineer</title>
+<meta name="description" content="Portfolio of Jesús Sánchez Martínez, GenAI Tech Lead &amp; Solutions Engineer at SAP Labs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue-deep:#0E2A45;
+    --blue-panel:#123354;
+    --blue-panel-2:#153a5e;
+    --line:rgba(234,242,248,0.14);
+    --line-strong:rgba(234,242,248,0.30);
+    --ink:#EAF2F8;
+    --ink-muted:#9FB8CC;
+    --ink-faint:#6E8CA3;
+    --accent:#E1573F;
+    --accent-soft:rgba(225,87,63,0.14);
+    --sans: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+    --sheet-w: min(880px, 100% - 3rem);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--blue-deep);
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 32px 32px;
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  ::selection{ background:var(--accent); color:#0E2A45; }
+
+  a{ color:var(--ink); }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+
+  .sheet{
+    width:var(--sheet-w);
+    margin:0 auto;
+  }
+
+  /* ---------- Header / title block ---------- */
+  header.titleblock{
+    padding:4.5rem 0 2.5rem;
+    position:relative;
+  }
+  .crosshair{
+    position:absolute;
+    width:18px; height:18px;
+    opacity:0.5;
+  }
+  .crosshair::before, .crosshair::after{
+    content:"";
+    position:absolute;
+    background:var(--ink-faint);
+  }
+  .crosshair::before{ left:50%; top:0; width:1px; height:100%; transform:translateX(-50%); }
+  .crosshair::after{ top:50%; left:0; height:1px; width:100%; transform:translateY(-50%); }
+  .crosshair.tl{ top:1.4rem; left:0; }
+
+  .drawing-no{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    letter-spacing:0.04em;
+    color:var(--ink-faint);
+    margin:0 0 1.6rem;
+  }
+
+  h1.name{
+    font-size:clamp(2.4rem, 5.4vw, 4rem);
+    font-weight:700;
+    letter-spacing:-0.01em;
+    margin:0 0 0.35rem;
+    line-height:1.05;
+  }
+  .role-line{
+    font-size:clamp(1.05rem, 2vw, 1.3rem);
+    color:var(--ink-muted);
+    margin:0 0 2.2rem;
+    max-width:34ch;
+  }
+  .role-line strong{ color:var(--ink); font-weight:600; }
+
+  .title-block-grid{
+    border-top:1px solid var(--line-strong);
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+  }
+  .title-block-grid div{
+    padding:0.9rem 1.1rem 0.9rem 0;
+    border-right:1px solid var(--line);
+  }
+  .title-block-grid div:last-child{ border-right:none; padding-right:0; }
+  .tb-label{
+    display:block;
+    font-family:var(--mono);
+    font-size:0.66rem;
+    color:var(--ink-faint);
+    margin-bottom:0.4rem;
+  }
+  .tb-value{
+    font-size:0.9rem;
+    color:var(--ink);
+  }
+  .tb-value a{ text-decoration:none; border-bottom:1px solid var(--ink-faint); }
+  .tb-value a:hover{ border-color:var(--accent); color:var(--accent); }
+
+  @media (max-width:640px){
+    .title-block-grid{ grid-template-columns:1fr 1fr; }
+    .title-block-grid div{ border-bottom:1px solid var(--line); padding:0.9rem 0.6rem 0.9rem 0; }
+  }
+
+  /* ---------- Sections ---------- */
+  section{ padding:3.2rem 0; }
+  section + section{ border-top:1px solid var(--line); }
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:0.9rem;
+    margin-bottom:1.8rem;
+  }
+  .section-head .sec-no{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    color:var(--accent);
+  }
+  .section-head h2{
+    font-size:1.05rem;
+    font-weight:600;
+    margin:0;
+    text-transform:none;
+    color:var(--ink);
+  }
+
+  .summary p{
+    font-size:1.08rem;
+    color:var(--ink-muted);
+    max-width:62ch;
+    margin:0;
+  }
+  .summary p strong{ color:var(--ink); font-weight:600; }
+
+  /* ---------- Experience ---------- */
+  .role{
+    display:grid;
+    grid-template-columns:9.5rem 1fr;
+    gap:1.4rem;
+    padding:1.5rem 0;
+    border-top:1px solid var(--line);
+  }
+  .role:first-of-type{ border-top:none; padding-top:0; }
+  @media (max-width:640px){
+    .role{ grid-template-columns:1fr; gap:0.5rem; }
+  }
+  .role .dates{
+    font-family:var(--mono);
+    font-size:0.76rem;
+    color:var(--ink-faint);
+    padding-top:0.2rem;
+  }
+  .role .role-title{
+    font-size:1.08rem;
+    font-weight:600;
+    margin:0 0 0.15rem;
+  }
+  .role .company{
+    font-size:0.92rem;
+    color:var(--accent);
+    margin:0 0 0.7rem;
+  }
+  .role .company span{ color:var(--ink-faint); }
+  .role p.desc{
+    color:var(--ink-muted);
+    margin:0 0 0.8rem;
+    max-width:58ch;
+    font-size:0.95rem;
+  }
+  .tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.4rem;
+  }
+  .tags span{
+    font-family:var(--mono);
+    font-size:0.68rem;
+    color:var(--ink-muted);
+    border:1px solid var(--line-strong);
+    padding:0.2rem 0.5rem;
+  }
+
+  /* ---------- Education / patents grid ---------- */
+  .plate-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    border-top:1px solid var(--line);
+    border-left:1px solid var(--line);
+  }
+  @media (max-width:640px){ .plate-grid{ grid-template-columns:1fr; } }
+  .plate{
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:1.3rem 1.4rem;
+  }
+  .plate .dates{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    color:var(--ink-faint);
+    display:block;
+    margin-bottom:0.5rem;
+  }
+  .plate h3{
+    font-size:0.98rem;
+    font-weight:600;
+    margin:0 0 0.3rem;
+  }
+  .plate p{
+    font-size:0.86rem;
+    color:var(--ink-muted);
+    margin:0;
+  }
+
+  /* ---------- Publications ---------- */
+  .pub-list{ list-style:none; margin:0; padding:0; }
+  .pub-list li{
+    padding:1rem 0;
+    border-top:1px solid var(--line);
+    display:grid;
+    grid-template-columns:4.2rem 1fr;
+    gap:1.2rem;
+  }
+  .pub-list li:first-child{ border-top:none; }
+  @media (max-width:640px){ .pub-list li{ grid-template-columns:1fr; gap:0.3rem; } }
+  .pub-list .yr{ font-family:var(--mono); font-size:0.76rem; color:var(--accent); }
+  .pub-list .pub-title{ font-size:0.94rem; color:var(--ink); margin:0 0 0.2rem; }
+  .pub-list .pub-venue{ font-size:0.82rem; color:var(--ink-faint); margin:0; }
+
+  /* ---------- Languages ---------- */
+  .lang-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:0.8rem 0;
+    border-top:1px solid var(--line);
+    max-width:44rem;
+  }
+  .lang-row:first-of-type{ border-top:none; }
+  .lang-row .lang-name{ font-weight:600; font-size:0.95rem; }
+  .lang-row .lang-level{ font-family:var(--mono); font-size:0.78rem; color:var(--ink-muted); text-align:right; }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:3rem 0 4rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:1rem;
+    flex-wrap:wrap;
+  }
+  footer .scale{
+    font-family:var(--mono);
+    font-size:0.68rem;
+    color:var(--ink-faint);
+  }
+  footer .contact-links{
+    display:flex;
+    gap:1.4rem;
+  }
+  footer .contact-links a{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    text-decoration:none;
+    color:var(--ink-muted);
+    border-bottom:1px solid transparent;
+  }
+  footer .contact-links a:hover{ color:var(--accent); border-color:var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <header class="titleblock">
+    <span class="crosshair tl"></span>
+    <p class="drawing-no">PROFILE / SHEET 01 — REV 2026.09</p>
+    <h1 class="name">Jesús Sánchez&nbsp;Martínez</h1>
+    <p class="role-line"><strong>GenAI Tech Lead &amp; Solutions Engineer</strong> designing secure, AI-driven cloud architecture at enterprise scale.</p>
+
+    <div class="title-block-grid">
+      <div>
+        <span class="tb-label">LOCATION</span>
+        <span class="tb-value">San Francisco, CA</span>
+      </div>
+      <div>
+        <span class="tb-label">EMAIL</span>
+        <span class="tb-value"><a href="mailto:jesusm.sanchez93@gmail.com">jesusm.sanchez93@gmail.com</a></span>
+      </div>
+      <div>
+        <span class="tb-label">LINKEDIN</span>
+        <span class="tb-value"><a href="https://www.linkedin.com/in/j-sanchezmartinez/" target="_blank" rel="noopener">j-sanchezmartinez</a></span>
+      </div>
+      <div>
+        <span class="tb-label">GITHUB</span>
+        <span class="tb-value"><a href="https://github.com/JesusMSM" target="_blank" rel="noopener">JesusMSM</a></span>
+      </div>
+    </div>
+  </header>
+
+  <section class="summary">
+    <div class="section-head">
+      <span class="sec-no">00</span>
+      <h2>Summary</h2>
+    </div>
+    <p>Six years at SAP Labs building the infrastructure enterprises trust: from <strong>automated, secure infrastructure-as-code platforms</strong> adopted by 10,000+ users, to the <strong>RAG and multi-agent systems</strong> now shaping how the company builds with GenAI. Two US patents, a research background in agent-based simulation, and a habit of turning complex architecture into something a room of executives — or a first-year engineer — can act on.</p>
+  </section>
+
+  <section id="experience">
+    <div class="section-head">
+      <span class="sec-no">01</span>
+      <h2>Experience</h2>
+    </div>
+
+    <div class="role">
+      <div class="dates">2023 — Present</div>
+      <div>
+        <p class="role-title">GenAI Tech Lead &amp; Solutions Engineer</p>
+        <p class="company">SAP Labs, LLC <span>· Palo Alto, CA</span></p>
+        <p class="desc">Design architectural patterns for enterprise RAG and multi-agent systems. Build and present technical demos and functional prototypes to technical and executive audiences. Lead engineer for security principles and LLM compliance.</p>
+        <div class="tags"><span>SAP BTP AI Core</span><span>RAG</span><span>Python</span><span>OpenAI</span><span>Anthropic</span><span>Vector DB</span></div>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="dates">2021 — Present</div>
+      <div>
+        <p class="role-title">Senior Solutions &amp; Software Engineer</p>
+        <p class="company">SAP Labs, LLC <span>· Palo Alto, CA</span></p>
+        <p class="desc">Lead engineer on an automated, secure infrastructure-as-code platform. Led discovery, use-case scoping, and technical advisory sessions that onboarded 10,000+ enterprise users across 100+ secure architecture designs within two months.</p>
+        <div class="tags"><span>Django</span><span>Java / Spring</span><span>PostgreSQL</span><span>Angular / React</span><span>AWS</span><span>GCP</span><span>Azure</span></div>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="dates">2020 — 2021</div>
+      <div>
+        <p class="role-title">Cloud Solutions Engineer</p>
+        <p class="company">SAP Labs, LLC <span>· Palo Alto, CA</span></p>
+        <p class="desc">Translated complex customer requirements into secure architecture patterns across multi-cloud B2B environments. Partnered with Product and Security to ship documentation and implementation guides that accelerated platform adoption.</p>
+        <div class="tags"><span>Java / Spring</span><span>AWS</span><span>GCP</span><span>Azure</span></div>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="dates">Feb — Apr 2020</div>
+      <div>
+        <p class="role-title">Cloud Software Engineer</p>
+        <p class="company">M10Tek, LLC <span>· Palo Alto, CA</span></p>
+        <p class="desc">Engineered cloud and network automation tools for enterprise clients, matching platform capability against specific B2B requirements.</p>
+        <div class="tags"><span>Java / Spring</span><span>PostgreSQL</span><span>AWS</span></div>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="dates">2019 — 2020</div>
+      <div>
+        <p class="role-title">Cloud Software Engineer</p>
+        <p class="company">ectalent, Inc. <span>· Palo Alto, CA</span></p>
+        <p class="desc">Worked directly with enterprise stakeholders at SAP to scope requirements and demonstrate the technical value of multi-cloud network automation solutions.</p>
+        <div class="tags"><span>Java / Spring</span><span>AWS</span><span>VMware ESXi</span></div>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="dates">2018 — 2019</div>
+      <div>
+        <p class="role-title">Software Engineer &amp; Product Management</p>
+        <p class="company">mediarithmics <span>· Paris, France</span></p>
+        <p class="desc">Bridged technical development and product strategy, managing client-facing requirements for Big Data automation tools and feeding field feedback into the product roadmap.</p>
+        <div class="tags"><span>Scala</span><span>PostgreSQL</span><span>Kafka</span><span>React</span></div>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="dates">Oct — Nov 2017</div>
+      <div>
+        <p class="role-title">Freelance Pre-Sales Solutions Engineer</p>
+        <p class="company">ENSTA ParisTech Junior Enterprise <span>· Paris, France</span></p>
+        <p class="desc">Assessed enterprise client requirements, authored statement-of-work documentation, and presented early-stage architectural prototypes.</p>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="dates">May — Jul 2017</div>
+      <div>
+        <p class="role-title">IoT Business Unit Solutions Intern</p>
+        <p class="company">SEQUANS Communications <span>· Paris, France</span></p>
+        <p class="desc">Built an IoT tracking prototype and presented it at Mobile World Congress Americas in San Francisco.</p>
+        <div class="tags"><span>C</span><span>AT commands</span><span>LTE</span><span>Chipset integration</span></div>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="dates">Jun — Dec 2016</div>
+      <div>
+        <p class="role-title">Mobile Application Developer</p>
+        <p class="company">WeMob <span>· Madrid, Spain</span></p>
+        <p class="desc">Built enterprise-facing mobile tracking applications with REST API integrations and real-time data visualization.</p>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="dates">2015 — 2016</div>
+      <div>
+        <p class="role-title">Research Assistant</p>
+        <p class="company">Intelligent Systems Group, GSI-UPM <span>· Madrid, Spain</span></p>
+        <p class="desc">Developed software agents and social-simulation prototypes, translating academic research into published papers and public lectures.</p>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="dates">Jul — Dec 2015</div>
+      <div>
+        <p class="role-title">Mobile Application Developer</p>
+        <p class="company">El Confidencial <span>· Madrid, Spain</span></p>
+        <p class="desc">Built and optimized mobile application modules relying on REST APIs and structured data processing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-head">
+      <span class="sec-no">02</span>
+      <h2>Education</h2>
+    </div>
+    <div class="plate-grid">
+      <div class="plate">
+        <span class="dates">2016 — 2018</span>
+        <h3>M.Sc. in Engineering</h3>
+        <p>ENSTA ParisTech — Computer science and complex systems' cybersecurity architecture. Top-10 French engineering school.</p>
+      </div>
+      <div class="plate">
+        <span class="dates">2015 — 2018</span>
+        <h3>M.Sc. in Computer Science &amp; Electrical Engineering</h3>
+        <p>Universidad Politécnica de Madrid — Major in Computer Science.</p>
+      </div>
+      <div class="plate">
+        <span class="dates">2011 — 2015</span>
+        <h3>B.Sc. in Computer Science &amp; Electrical Engineering</h3>
+        <p>Universidad Politécnica de Madrid.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="patents">
+    <div class="section-head">
+      <span class="sec-no">03</span>
+      <h2>Patents &amp; Publications</h2>
+    </div>
+    <ul class="pub-list">
+      <li>
+        <span class="yr">2025</span>
+        <div>
+          <p class="pub-title">Systems and Methods for Code Generation — US Patent, US-202501238</p>
+          <p class="pub-venue">San Francisco, USA</p>
+        </div>
+      </li>
+      <li>
+        <span class="yr">2023</span>
+        <div>
+          <p class="pub-title">Cloud Environment Delivery Tool — US Patent, Pub. No. 20230097662</p>
+          <p class="pub-venue">Walldorf, Germany</p>
+        </div>
+      </li>
+      <li>
+        <span class="yr">2017</span>
+        <div>
+          <p class="pub-title">Modeling Social Influence in Social Networks with SOIL, a Python Agent-Based Social Simulator</p>
+          <p class="pub-venue">Advances in Practical Applications of Cyber-Physical Multi-Agent Systems: The PAAMS Collection</p>
+        </div>
+      </li>
+      <li>
+        <span class="yr">2017</span>
+        <div>
+          <p class="pub-title">SOIL: An Agent-Based Social Simulator in Python for Modelling and Simulation of Social Networks</p>
+          <p class="pub-venue">PAAMS Collection, Vol. 10349 — ISBN 978-3-319-59929-8</p>
+        </div>
+      </li>
+      <li>
+        <span class="yr">2016</span>
+        <div>
+          <p class="pub-title">A Participatory Agent-Based Simulation for Indoor Evacuation Supported by Google Glass</p>
+          <p class="pub-venue">Sensors, 16 (9), 1360</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="languages">
+    <div class="section-head">
+      <span class="sec-no">04</span>
+      <h2>Languages</h2>
+    </div>
+    <div class="lang-row">
+      <span class="lang-name">Spanish</span>
+      <span class="lang-level">Native bilingual fluency</span>
+    </div>
+    <div class="lang-row">
+      <span class="lang-name">English</span>
+      <span class="lang-level">Full professional fluency — TOEIC 970/990 (C1)</span>
+    </div>
+    <div class="lang-row">
+      <span class="lang-name">French</span>
+      <span class="lang-level">C2 — TCF</span>
+    </div>
+  </section>
+
+  <footer>
+    <span class="scale">SHEET 01 OF 01 — SCALE N.T.S.</span>
+    <div class="contact-links">
+      <a href="mailto:jesusm.sanchez93@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/j-sanchezmartinez/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/JesusMSM" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
